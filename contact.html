@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | Pooja Jadhav</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="contact-container">
+    <h2>Contact Me</h2>
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+    <form method="post" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" value="{{ name|default('') }}" required>
+      <input type="email" name="email" placeholder="Your Email" value="{{ email|default('') }}" required>
+      <textarea name="message" placeholder="Your Message" required>{{ message|default('') }}</textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p style="text-align:center; margin-top:10px;">
+      <a href="{{ url_for('home') }}">← Back to Home</a>
+    </p>
+  </main>
+</body>
+</html>
